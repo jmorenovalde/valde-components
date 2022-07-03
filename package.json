@@ -9,7 +9,9 @@
     "test": "ng test",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook -p 6006",
-    "build-storybook": "npm run docs:json && build-storybook"
+    "build-storybook": "npm run docs:json && build-storybook",
+    "compodoc": "compodoc -p ./tsconfig.json -n \"Valde Components\" -d ./dist/doc",
+    "compodoc:dev": "compodoc -p tsconfig.json -n \"Valde Components\" -d ./dist/doc --open --serve --watch"
   },
   "private": true,
   "dependencies": {
