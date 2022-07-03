@@ -1,1 +1,12 @@
-<button type="button" class="btn btn-{{ buttonStyle }}">{{ label }}</button>
+<button
+  class="btn btn-{{ outline ? 'outline-' + buttonStyle : buttonStyle }}"
+  [ngClass]="{
+    'btn-sm': size === 'small',
+    'btn-lg': size === 'large'
+  }"
+  [disabled]="disabled"
+  type="button"
+  (click)="onClick.next($event)"
+>
+  {{ label }}
+</button>

@@ -1,4 +1,22 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+export enum ButtonStyle {
+  Primary = 'primary',
+  Secondary = 'secondary',
+  Success = 'success',
+  Danger = 'danger',
+  Warning = 'warning',
+  Info = 'info',
+  Light = 'light',
+  Dark = 'dark',
+  Link = 'link',
+}
+
+export enum ButtonSize {
+  Small = 'small',
+  Medium = 'medium',
+  Large = 'large',
+}
 
 @Component({
   selector: 'app-valde-button',
@@ -29,4 +47,19 @@ export class ValdeButtonComponent {
     | 'light'
     | 'dark'
     | 'link' = 'primary';
+
+  /**
+   * This property is used to disable the button.
+   */
+  @Input() disabled = false;
+
+  /**
+   * The style outlined
+   */
+  @Input() outline = false;
+
+  /**
+   * Optional click handler
+   */
+  @Output() onClick = new EventEmitter<Event>();
 }
