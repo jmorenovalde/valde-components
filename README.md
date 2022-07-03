@@ -15,7 +15,7 @@ This _Angular project_ has some projects to show.
 1. The application to show the use of components as `Angular Project`.
 
 ```bash
-npm run serve
+npm run start
 ```
 
 2. The _Storybook application_ to show the components with the _Storybook_ interface

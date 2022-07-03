@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LayoutModule } from './shared/layout/layout.module';
+import { ButtonsModule } from './pages/buttons/buttons.module';
+import { LayoutModule } from '@shared/layout/layout.module';
 
 @NgModule({
   declarations: [AppComponent],
