@@ -11,7 +11,38 @@ export default {
   title: 'ValdeComponent/ValdeButton',
   component: ValdeButtonComponent,
   // More on argTypes: https://storybook.js.org/docs/angular/api/argtypes
-  argTypes: {},
+  argTypes: {
+    size: {
+      options: Object.keys(ButtonSize),
+      mapping: ButtonSize,
+      control: {
+        type: 'select',
+        labels: {
+          small: 'Small',
+          medium: 'Medium',
+          large: 'Large',
+        },
+      },
+    },
+    buttonStyle: {
+      options: Object.keys(ButtonStyle),
+      mapping: ButtonStyle,
+      control: {
+        type: 'select',
+        labels: {
+          primary: 'Primary',
+          secondary: 'Secondary',
+          success: 'Success',
+          danger: 'Danger',
+          warning: 'Warning',
+          info: 'Info',
+          light: 'Light',
+          dark: 'Dark',
+          link: 'Link',
+        },
+      },
+    },
+  },
 } as Meta;
 
 // More on component templates: https://storybook.js.org/docs/angular/writing-stories/introduction#using-args

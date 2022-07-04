@@ -32,7 +32,7 @@ export class ValdeButtonComponent {
   /**
    * The size of the button
    */
-  @Input() size: 'small' | 'medium' | 'large' = 'medium';
+  @Input() size = ButtonSize.Medium;
 
   /**
    * The style to show the button.
