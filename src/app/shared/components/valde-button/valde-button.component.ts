@@ -1,21 +1,21 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 export enum ButtonStyle {
+  Danger = 'danger',
+  Dark = 'dark',
+  Info = 'info',
+  Light = 'light',
+  Link = 'link',
   Primary = 'primary',
   Secondary = 'secondary',
   Success = 'success',
-  Danger = 'danger',
   Warning = 'warning',
-  Info = 'info',
-  Light = 'light',
-  Dark = 'dark',
-  Link = 'link',
 }
 
 export enum ButtonSize {
-  Small = 'small',
-  Medium = 'medium',
   Large = 'large',
+  Medium = 'medium',
+  Small = 'small',
 }
 
 @Component({
@@ -37,16 +37,7 @@ export class ValdeButtonComponent {
   /**
    * The style to show the button.
    */
-  @Input() buttonStyle:
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'danger'
-    | 'warning'
-    | 'info'
-    | 'light'
-    | 'dark'
-    | 'link' = 'primary';
+  @Input() buttonStyle = ButtonStyle.Primary;
 
   /**
    * This property is used to disable the button.
@@ -62,4 +53,12 @@ export class ValdeButtonComponent {
    * Optional click handler
    */
   @Output() onClick = new EventEmitter<Event>();
+
+  /**
+   * This function will fire the event onClick on the click over the button.
+   * @param event The event object that is fired.
+   */
+  public clicked(event: Event): void {
+    this.onClick.next(event);
+  }
 }
