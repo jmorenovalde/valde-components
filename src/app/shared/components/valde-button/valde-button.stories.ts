@@ -8,10 +8,11 @@ import {
 
 // More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export
 export default {
-  title: 'ValdeComponent/ValdeButton',
+  title: 'shared/components/ValdeButton',
   component: ValdeButtonComponent,
   // More on argTypes: https://storybook.js.org/docs/angular/api/argtypes
   argTypes: {
+    onClick: { action: 'clicked' },
     size: {
       options: Object.keys(ButtonSize),
       mapping: ButtonSize,
@@ -65,8 +66,8 @@ Secondary.args = {
   size: ButtonSize.Medium,
 };
 
-export const Large = Template.bind({});
-Large.args = {
+export const LargeSuccess = Template.bind({});
+LargeSuccess.args = {
   buttonStyle: ButtonStyle.Success,
   label: 'Large',
   size: ButtonSize.Large,
@@ -79,8 +80,8 @@ Small.args = {
   size: ButtonSize.Small,
 };
 
-export const Outline = Template.bind({});
-Outline.args = {
+export const outline = Template.bind({});
+outline.args = {
   buttonStyle: ButtonStyle.Warning,
   label: 'Outline',
   outline: true,
@@ -94,6 +95,7 @@ Disabled.args = {
   label: 'Disabled',
   size: ButtonSize.Medium,
 };
+Disabled.storyName = 'Disable Button Primary';
 
 export const Icon = Template.bind({});
 Icon.args = {
