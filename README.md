@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Install
 
-As every _Angular project_ you can run `npm install`.
+As each Angular project, you can run `npm install`.
 
 ## Run
 
