@@ -1,5 +1,10 @@
 import { DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  ComponentFixture,
+  fakeAsync,
+  flush,
+  TestBed,
+} from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import {
@@ -233,17 +238,18 @@ describe('ValdeButtonComponent', () => {
     expect(button.className as string).toContain('btn-warning');
   });
 
-  it('click on the button call the function of the send the event', () => {
+  it('click on the button call the function of the send the event', fakeAsync(() => {
     const dEButton = el.query(By.css('button'));
     const button = dEButton.nativeElement as any;
+    const mockCallBack = jest.spyOn(component.onClick, 'next');
+
     button.click();
+    flush();
 
-    fixture.whenStable().then(() => {
-      expect(button.clicked).toHaveBeenCalled();
-    });
-  });
+    expect(mockCallBack.mock.calls.length).toEqual(1);
+  }));
 
-  it('add an icon to the booten', () => {
+  it('add an icon to the button', () => {
     component.icon = 'check';
     fixture.detectChanges();
 
