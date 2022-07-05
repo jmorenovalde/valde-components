@@ -11,7 +11,7 @@ import {
   ButtonSize,
   ButtonStyle,
   ValdeButtonComponent,
-} from '@shared/components/valde-button/valde-button.component';
+} from './valde-button.component';
 
 describe('ValdeButtonComponent', () => {
   let component: ValdeButtonComponent;
