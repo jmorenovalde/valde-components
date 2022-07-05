@@ -62,6 +62,7 @@ export class ValdeButtonComponent {
   @Output() onClick = new EventEmitter<Event>();
 
   /**
+   * @ignore
    * This function will fire the event onClick on the click over the button.
    * @param event The event object that is fired.
    */
