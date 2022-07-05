@@ -38,6 +38,7 @@ yarn-error.log
 testem.log
 /typings
 documentation.json
+.jest-test-results.json
 
 # System files
 .DS_Store
