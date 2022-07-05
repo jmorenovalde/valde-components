@@ -28,3 +28,8 @@ npm run storybook
 ```bash
 npm run compodoc
 ```
+
+4. The _Jest test suit_.
+```bash
+npm run test
+```
