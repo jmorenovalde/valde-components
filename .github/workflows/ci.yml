@@ -29,4 +29,4 @@ jobs:
       - name: Run Build command
         run: npm run build
       - name: Run Unit tests
-        run: npm run tests
+        run: npm run test
