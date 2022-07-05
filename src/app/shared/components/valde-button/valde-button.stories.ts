@@ -94,3 +94,11 @@ Disabled.args = {
   label: 'Disabled',
   size: ButtonSize.Medium,
 };
+
+export const Icon = Template.bind({});
+Icon.args = {
+  buttonStyle: ButtonStyle.Primary,
+  icon: 'x',
+  label: 'Icon',
+  size: ButtonSize.Medium,
+};

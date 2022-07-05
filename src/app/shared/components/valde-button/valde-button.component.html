@@ -8,5 +8,6 @@
   type="button"
   (click)="clicked($event)"
 >
+  <span *ngIf="icon" class="bi bi-{{ icon }}"></span>
   {{ label }}
 </button>

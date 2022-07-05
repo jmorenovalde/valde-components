@@ -27,9 +27,11 @@ describe('ValdeButtonComponent', () => {
   it('should create', () => {
     const dEButton = el.query(By.css('button'));
     const button = dEButton.nativeElement as any;
+    const icon = dEButton.query(By.css('.bi'));
 
     expect(component).toBeTruthy();
     expect(button.disabled).toBeFalsy();
+    expect(icon).toBeFalsy();
     expect(button.className as string).toBe('btn btn-primary');
     expect((button.textContent as string).trim()).toEqual('Label');
   });
@@ -239,5 +241,15 @@ describe('ValdeButtonComponent', () => {
     fixture.whenStable().then(() => {
       expect(button.clicked).toHaveBeenCalled();
     });
+  });
+
+  it('add an icon to the booten', () => {
+    component.icon = 'check';
+    fixture.detectChanges();
+
+    const dEButton = el.query(By.css('button'));
+    const icon = dEButton.query(By.css('.bi'));
+
+    expect(icon).toBeTruthy();
   });
 });

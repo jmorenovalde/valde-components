@@ -50,6 +50,13 @@ export class ValdeButtonComponent {
   @Input() outline = false;
 
   /**
+   * Icon to show before label. The icon is the string of the style of the icon from [bootstrap-icons](https://icons.getbootstrap.com/).
+   *
+   * @example tho show the alarm icon, on the bootstrap-icon page you can see the next code `<i class="bi bi-alarm"></i>`, to show the alarm icon set icon to `alarm`.
+   */
+  @Input() icon = '';
+
+  /**
    * Optional click handler
    */
   @Output() onClick = new EventEmitter<Event>();
