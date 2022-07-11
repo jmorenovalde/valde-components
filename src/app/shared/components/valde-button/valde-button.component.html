@@ -5,9 +5,9 @@
     'btn-lg': size === 'large'
   }"
   [disabled]="disabled"
-  type="button"
+  [type]="type"
   (click)="clicked($event)"
 >
-  <span *ngIf="icon" class="bi bi-{{ icon }}"></span>
+  <span *ngIf="icon" aria-hidden="true" class="bi bi-{{ icon }}"></span>
   {{ label }}
 </button>

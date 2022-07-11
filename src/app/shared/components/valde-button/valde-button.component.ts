@@ -57,6 +57,11 @@ export class ValdeButtonComponent {
   @Input() icon = '';
 
   /**
+   * The type of button. Default value is button, but can use as submit or reset.
+   */
+  @Input() type: 'button' | 'submit' | 'reset' = 'button';
+
+  /**
    * Optional click handler
    */
   @Output() onClick = new EventEmitter<Event>();

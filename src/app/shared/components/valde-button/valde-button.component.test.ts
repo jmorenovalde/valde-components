@@ -258,4 +258,24 @@ describe('ValdeButtonComponent', () => {
 
     expect(icon).toBeTruthy();
   });
+
+  it('change type to `submit`', () => {
+    component.type = 'submit';
+    fixture.detectChanges();
+
+    const dEButton = el.query(By.css('button'));
+    const button = dEButton.nativeElement as any;
+    console.log(button);
+    expect(button.type as string).toContain('submit');
+  });
+
+  it('change type to `reset`', () => {
+    component.type = 'reset';
+    fixture.detectChanges();
+
+    const dEButton = el.query(By.css('button'));
+    const button = dEButton.nativeElement as any;
+
+    expect(button.type as string).toContain('reset');
+  });
 });
