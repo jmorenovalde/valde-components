@@ -1,0 +1,27 @@
+<div class="mb-3">
+  <label [for]="id" class="form-label">{{ label }}</label>
+  <ng-container *ngIf="type === 'number'; else otherType">
+    <input
+      autocomplete="false"
+      class="form-control"
+      [disabled]="disabled"
+      [readonly]="readonly"
+      [id]="id"
+      [placeholder]="placeholder"
+      [step]="step"
+      [type]="type"
+    />
+  </ng-container>
+</div>
+
+<ng-template #otherType>
+  <input
+    autocomplete="false"
+    class="form-control"
+    [disabled]="disabled"
+    [readonly]="readonly"
+    [id]="id"
+    [placeholder]="placeholder"
+    [type]="type"
+  />
+</ng-template>
