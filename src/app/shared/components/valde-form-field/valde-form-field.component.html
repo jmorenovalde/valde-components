@@ -5,11 +5,15 @@
       autocomplete="false"
       class="form-control"
       [disabled]="disabled"
-      [readonly]="readonly"
       [id]="id"
+      [max]="max"
+      [min]="min"
       [placeholder]="placeholder"
+      [readonly]="readonly"
       [step]="step"
       [type]="type"
+      [value]="valueToShow"
+      (keyup)="onKeyupNumbers($event)"
     />
   </ng-container>
 </div>
@@ -19,9 +23,11 @@
     autocomplete="false"
     class="form-control"
     [disabled]="disabled"
-    [readonly]="readonly"
     [id]="id"
     [placeholder]="placeholder"
+    [readonly]="readonly"
     [type]="type"
+    [value]="valueToShow"
+    (keyup)="onKeyup($event)"
   />
 </ng-template>

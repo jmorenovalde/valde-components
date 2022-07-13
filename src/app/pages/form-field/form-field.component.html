@@ -2,7 +2,7 @@
   <h3>Text</h3>
   <form id="textForm">
     <app-valde-form-field
-      id="textField"
+      [id]="'textField'"
       label="Text field"
       placeholder="Sample text here"
     ></app-valde-form-field>
@@ -10,7 +10,7 @@
   <h3>Email</h3>
   <form id="emailForm">
     <app-valde-form-field
-      id="emailField"
+      [id]="'emailField'"
       label="Email field"
       placeholder="jon.doe@domain.com"
       type="email"
@@ -19,17 +19,25 @@
   <h3>Number</h3>
   <form id="numberForm">
     <app-valde-form-field
-      id="numberField"
+      [id]="'numberField'"
       label="Number field"
       placeholder="Type a number here"
       type="number"
     ></app-valde-form-field>
     <app-valde-form-field
-      id="numberField2"
+      [id]="'numberField2'"
       label="Decimal field"
       placeholder="Type a decimal number here"
       [step]="0.1"
       type="number"
+      value="231"
+    ></app-valde-form-field>
+    <app-valde-form-field
+      [id]="'fileField'"
+      label="File field"
+      placeholder="Select a file"
+      [step]="0.1"
+      type="file"
     ></app-valde-form-field>
   </form>
 </div>
