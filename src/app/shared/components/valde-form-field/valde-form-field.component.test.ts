@@ -38,12 +38,6 @@ describe('ValdeFormFieldComponent', () => {
       const input = dEInput.nativeElement as any;
       expect(input.type as string).toContain('number');
     });
-
-    it('introduce an error value', () => {
-      component.value = '123e1234';
-      fixture.detectChanges();
-      expect(component.isValid).toBeFalsy();
-    });
   });
 
   it('change type to `file`', () => {
