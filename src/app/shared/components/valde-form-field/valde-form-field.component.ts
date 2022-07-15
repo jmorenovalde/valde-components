@@ -1,4 +1,13 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
+
+const MSG_NUMBER_INVALID = 'The value is not valid';
 
 @Component({
   selector: 'app-valde-form-field',
@@ -16,6 +25,7 @@ export class ValdeFormFieldComponent implements OnChanges {
    * @required
    */
   @Input() id!: string;
+
   /**
    * The identification text of the field
    */
@@ -47,6 +57,11 @@ export class ValdeFormFieldComponent implements OnChanges {
   @Input() step = 1;
 
   /**
+   * Show error on blur (false) or in real time (false)
+   */
+  @Input() showErrorOnBlur = true;
+
+  /**
    * The type of the input.
    */
   @Input() type:
@@ -63,19 +78,48 @@ export class ValdeFormFieldComponent implements OnChanges {
     | 'url'
     | 'datetime-local' = 'text';
 
+  /**
+   * initial value
+   */
   @Input() value!: unknown;
 
-  private isValid = true;
+  /**
+   * This event emits when the value is changed or field lost focus.
+   * @returns the value of the field.
+   */
+  @Output() valueChanged = new EventEmitter<unknown>();
+
+  /**
+   * This event emits when the value has a error. This event emits according to showErrorOnBlur value.
+   */
+  @Output() valueHasError = new EventEmitter<string>();
+
   public valueToShow: any = '';
-  public valueOld: any = '';
-  public valueTemporal: any = '';
+  public isValid = true;
+
+  private valueOld: unknown;
+  private valueTemporal = '';
 
   ngOnChanges(changes: SimpleChanges): void {
     const { value } = changes;
-
     if (value?.currentValue) {
-      this.valueToShow = value.currentValue;
+      this.valueToShow = value.currentValue.toString();
       this.valueOld = value.currentValue;
+      if (this.type === 'number') {
+        this.isValid =
+          !Number.isNaN(value.currentValue as string) &&
+          Number.isFinite(Number(value.currentValue as string));
+      }
+    }
+  }
+
+  onBlurNumbers(event: FocusEvent): void {
+    const target = event.target as HTMLInputElement;
+    this.isValid = target?.validity?.valid;
+    if (this.isValid) {
+      this.valueTemporal = target.valueAsNumber.toString();
+      this.valueChanged.emit(target.valueAsNumber);
+      this.valueHasError.emit(MSG_NUMBER_INVALID);
     }
   }
 
@@ -84,10 +128,12 @@ export class ValdeFormFieldComponent implements OnChanges {
       this.restoreValues();
     } else {
       const target = event.target as HTMLInputElement;
-      this.isValid = target?.validity?.valid;
+      this.isValid = !this.showErrorOnBlur ? target?.validity?.valid : true;
       if (this.isValid) {
-        this.valueTemporal = target.valueAsNumber;
-        this.valueToShow = target.valueAsNumber;
+        this.valueTemporal = target.valueAsNumber.toString();
+        this.valueChanged.emit(target.valueAsNumber);
+      } else if (!this.isValid && !this.showErrorOnBlur) {
+        this.valueHasError.emit(MSG_NUMBER_INVALID);
       }
     }
   }
@@ -99,13 +145,15 @@ export class ValdeFormFieldComponent implements OnChanges {
       const target = event.target as HTMLInputElement;
       this.isValid = true;
       this.valueTemporal = target.value;
-      this.valueToShow = target.value;
+      this.valueChanged.emit(target.value);
     }
-    console.warn({
-      temporal: this.valueTemporal,
-      old: this.valueOld,
-      toShow: this.valueToShow,
-    });
+  }
+
+  onBlur(event: FocusEvent): void {
+    const target = event.target as HTMLInputElement;
+    this.isValid = true;
+    this.valueTemporal = target.value;
+    this.valueChanged.emit(target.value);
   }
 
   private isEscPressed(event: KeyboardEvent): boolean {
@@ -114,6 +162,7 @@ export class ValdeFormFieldComponent implements OnChanges {
 
   private restoreValues() {
     this.valueToShow = this.valueOld;
-    this.valueTemporal = '';
+    this.valueTemporal = this.valueOld as string;
+    this.valueChanged.emit(this.valueOld);
   }
 }

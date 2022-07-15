@@ -265,7 +265,6 @@ describe('ValdeButtonComponent', () => {
 
     const dEButton = el.query(By.css('button'));
     const button = dEButton.nativeElement as any;
-    console.log(button);
     expect(button.type as string).toContain('submit');
   });
 

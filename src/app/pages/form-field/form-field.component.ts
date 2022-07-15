@@ -4,4 +4,14 @@ import { Component } from '@angular/core';
   selector: 'app-form-field',
   templateUrl: './form-field.component.html',
 })
-export class FormFieldComponent {}
+export class FormFieldComponent {
+  onValueChanged(value: unknown): void {
+    if (typeof value === 'number') {
+      console.info({ number: value });
+    } else if (typeof value === 'string') {
+      console.info({ string: value });
+    } else {
+      console.info({ unknow: value });
+    }
+  }
+}

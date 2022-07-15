@@ -5,6 +5,7 @@
       [id]="'textField'"
       label="Text field"
       placeholder="Sample text here"
+      (valueChanged)="onValueChanged($event)"
     ></app-valde-form-field>
   </form>
   <h3>Email</h3>
@@ -14,6 +15,7 @@
       label="Email field"
       placeholder="jon.doe@domain.com"
       type="email"
+      (valueChanged)="onValueChanged($event)"
     ></app-valde-form-field>
   </form>
   <h3>Number</h3>
@@ -23,6 +25,7 @@
       label="Number field"
       placeholder="Type a number here"
       type="number"
+      (valueChanged)="onValueChanged($event)"
     ></app-valde-form-field>
     <app-valde-form-field
       [id]="'numberField2'"
@@ -30,14 +33,19 @@
       placeholder="Type a decimal number here"
       [step]="0.1"
       type="number"
-      value="231"
+      value="231e1234"
+      (valueChanged)="onValueChanged($event)"
     ></app-valde-form-field>
+  </form>
+  <h3>File</h3>
+  <form id="fileForm">
     <app-valde-form-field
       [id]="'fileField'"
       label="File field"
       placeholder="Select a file"
       [step]="0.1"
       type="file"
+      (valueChanged)="onValueChanged($event)"
     ></app-valde-form-field>
   </form>
 </div>
