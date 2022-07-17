@@ -20,14 +20,16 @@
   </form>
   <h3>Number</h3>
   <form id="numberForm">
-    <app-valde-form-field
+    <app-valde-form-field-number
       [id]="'numberField'"
-      label="Number field"
+      [isInteger]="true"
+      label="Integer field"
       placeholder="Type a number here"
+      [showErrorOnBlur]="false"
       type="number"
       (valueChanged)="onValueChanged($event)"
-    ></app-valde-form-field>
-    <app-valde-form-field
+    ></app-valde-form-field-number>
+    <app-valde-form-field-number
       [id]="'numberField2'"
       label="Decimal field"
       placeholder="Type a decimal number here"
@@ -35,7 +37,7 @@
       type="number"
       value="231e1234"
       (valueChanged)="onValueChanged($event)"
-    ></app-valde-form-field>
+    ></app-valde-form-field-number>
   </form>
   <h3>File</h3>
   <form id="fileForm">
@@ -43,7 +45,6 @@
       [id]="'fileField'"
       label="File field"
       placeholder="Select a file"
-      [step]="0.1"
       type="file"
       (valueChanged)="onValueChanged($event)"
     ></app-valde-form-field>

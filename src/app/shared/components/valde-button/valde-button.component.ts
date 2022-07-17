@@ -71,7 +71,7 @@ export class ValdeButtonComponent {
    * This function will fire the event onClick on the click over the button.
    * @param event The event object that is fired.
    */
-  public clicked(event: Event): void {
+  protected clicked(event: Event): void {
     this.onClick.next(event);
   }
 }

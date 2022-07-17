@@ -1,0 +1,36 @@
+<div class="mb-3">
+  <label [for]="id" class="form-label">{{ label }}</label>
+  <input
+    autocomplete="false"
+    class="form-control"
+    [disabled]="disabled"
+    [id]="id"
+    [max]="max"
+    [min]="min"
+    [ngClass]="{ 'border border-danger': !isValid }"
+    [placeholder]="placeholder"
+    [readonly]="readonly"
+    [step]="step"
+    type="number"
+    [value]="valueToShow"
+    (blur)="onBlurNumbers($event)"
+    (change)="onChangeNumbers($event)"
+    (keyup)="onKeyupNumbers($event)"
+  />
+  <small
+    *ngIf="!isValid"
+    class="
+      tooltip-error
+      badge
+      mb-3
+      px-2
+      py-1
+      fw-semibold
+      text-white
+      bg-danger bg-opacity-75
+      border border-danger
+      rounded-2
+    "
+    >The number is not valid</small
+  >
+</div>
