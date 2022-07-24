@@ -67,7 +67,7 @@ export class ValdeFormFieldComponent
   /**
    * @ignore This protected method will be used only by the component view.
    *
-   * This methos is fired when input lost the focus
+   * This method is fired when input lost the focus
    *
    * @param {Event} event the event that it is fired when the field lost the focus.
    */
