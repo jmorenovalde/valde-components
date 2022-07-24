@@ -138,13 +138,13 @@ describe('ValdeFormFieldComponent Testing Library', () => {
     await render(ValdeFormFieldNumberComponent, {
       componentProperties: {
         id: 'numberLabelId',
-        isInteger: true,
+        isInteger: false,
         showErrorOnBlur: false,
       },
     });
     const input = screen.getByTestId('numberLabelId');
-    userEvent.type(input, '12e1234');
-    const error = screen.getByText('The number is not valid');
-    expect(error).toBeTruthy();
+    await fireEvent.focus(input);
+    const keyboardState = userEvent.keyboard('{1},{2},{e},{1},{2},{3},{4}');
+    expect((input as any).valueAsNumber).toBeNaN();
   });
 });

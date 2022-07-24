@@ -40,12 +40,22 @@
       (valueChanged)="onValueChanged($event)"
     ></app-valde-form-field-number>
     <app-valde-form-field-number
-      [id]="'numberField2'"
-      label="Decimal field"
+      [id]="'numberField3'"
+      label="Decimal field filed input"
       placeholder="Type a decimal number here"
       [step]="0.1"
       type="number"
       value="231e1234"
+      (valueChanged)="onValueChanged($event)"
+    ></app-valde-form-field-number>
+    <app-valde-form-field-number
+      [id]="'numberField4'"
+      label="Decimal field"
+      placeholder="Type a decimal number here"
+      [showErrorOnBlur]="false"
+      [step]="0.1"
+      type="number"
+      value=""
       (valueChanged)="onValueChanged($event)"
     ></app-valde-form-field-number>
   </form>
