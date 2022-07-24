@@ -31,6 +31,16 @@
     ></app-valde-form-field-number>
     <app-valde-form-field-number
       [id]="'numberField2'"
+      [isInteger]="true"
+      label="Number with value"
+      placeholder="Type a number here"
+      [showErrorOnBlur]="false"
+      type="number"
+      [value]="56"
+      (valueChanged)="onValueChanged($event)"
+    ></app-valde-form-field-number>
+    <app-valde-form-field-number
+      [id]="'numberField2'"
       label="Decimal field"
       placeholder="Type a decimal number here"
       [step]="0.1"

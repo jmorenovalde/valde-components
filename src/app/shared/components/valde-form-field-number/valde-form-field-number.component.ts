@@ -30,7 +30,7 @@ export class ValdeFormFieldNumberComponent
   @Input() min = Number.MIN_SAFE_INTEGER;
 
   /**
-   * This property indicates the maximun value.
+   * This property indicates the maximum value.
    */
   @Input() max = Number.MAX_SAFE_INTEGER;
 
@@ -52,7 +52,7 @@ export class ValdeFormFieldNumberComponent
   public isValid = true;
 
   /**
-   * @ignore livecycle hook of angular component.
+   * @ignore lifecycle hook of angular component.
    */
   ngOnChanges(changes: SimpleChanges): void {
     const { value } = changes;
@@ -72,7 +72,7 @@ export class ValdeFormFieldNumberComponent
   /**
    * @ignore This protected method will be used only by the component view.
    *
-   * This methos is fired when input lost the focus
+   * This method is fired when input lost the focus
    *
    * @param {Event} event the event that it is fired when the field lost the focus.
    */
@@ -134,10 +134,7 @@ export class ValdeFormFieldNumberComponent
    *
    * This method validate if the value es valid.
    */
-  protected validateValue(
-    isInteger: boolean,
-    field: HTMLInputElement
-  ): boolean {
+  private validateValue(isInteger: boolean, field: HTMLInputElement): boolean {
     if (!isInteger) {
       return field.validity.valid;
     }
