@@ -5,6 +5,7 @@
       <input
         #inputControl
         autocomplete="false"
+        attr.data-testid="{{ id }}"
         class="form-control"
         [disabled]="disabled"
         [id]="id"
@@ -13,6 +14,7 @@
         [type]="type"
         [value]="valueToShow"
         (blur)="onBlur($event)"
+        (change)="onChange($event)"
         (keyup)="onKeyup($event)"
       />
     </ng-container>

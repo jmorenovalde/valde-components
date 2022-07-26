@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 
 export enum ButtonStyle {
   Danger = 'danger',
@@ -23,11 +30,14 @@ export enum ButtonSize {
   templateUrl: './valde-button.component.html',
 })
 export class ValdeButtonComponent {
+  @ViewChild('valdeButton') button!: ElementRef;
+
   /**
    * The label to show on the button.
    * @required
    */
-  @Input() label = 'Label';
+  @Input()
+  label = 'Label';
 
   /**
    * The size of the button
@@ -65,6 +75,15 @@ export class ValdeButtonComponent {
    * Optional click handler
    */
   @Output() onClick = new EventEmitter<Event>();
+
+  /**
+   * Set the focus on the button.
+   */
+  public focus(): void {
+    if (this.button) {
+      this.button.nativeElement.focus();
+    }
+  }
 
   /**
    * @ignore

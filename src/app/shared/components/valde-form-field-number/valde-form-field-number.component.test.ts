@@ -6,7 +6,7 @@ import userEvent from '@testing-library/user-event';
 
 import { ValdeFormFieldNumberComponent } from './valde-form-field-number.component';
 
-describe('ValdeFormFieldComponent', () => {
+describe('ValdeFormFieldNumberComponent', () => {
   let component: ValdeFormFieldNumberComponent;
   let fixture: ComponentFixture<ValdeFormFieldNumberComponent>;
   let el: DebugElement;
@@ -75,7 +75,7 @@ describe('ValdeFormFieldComponent', () => {
   });
 });
 
-describe('ValdeFormFieldComponent Testing Library', () => {
+describe('ValdeFormFieldNumberComponent Testing Library', () => {
   it('should change value is typing is a valid value', async () => {
     await render(ValdeFormFieldNumberComponent, {
       componentProperties: {

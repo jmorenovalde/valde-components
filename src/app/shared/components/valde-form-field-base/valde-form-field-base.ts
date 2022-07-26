@@ -75,8 +75,11 @@ export class ValdeFormFieldBase {
    * This method restore the old value and emit this value.
    */
   protected restoreValues() {
-    this.valueToShow = this.valueOld;
-    this.valueTemporal = this.valueOld as string;
-    this.valueChanged.emit(this.valueOld);
+    this.valueToShow = this.valueOld ? this.valueOld : '';
+    this.valueTemporal = this.valueToShow as string;
+    if (this.inputControl) {
+      this.inputControl.nativeElement.value = this.valueToShow;
+    }
+    this.valueChanged.emit(this.valueToShow);
   }
 }

@@ -47,6 +47,15 @@ export class ValdeFormFieldComponent
   }
 
   /**
+   * Set the focus on the inputControl.
+   */
+  public focus(): void {
+    if (this.inputControl) {
+      this.inputControl.nativeElement.focus();
+    }
+  }
+
+  /**
    * @ignore This protected method will be used only by the component view.
    *
    * This method is fired when user is typing on the field.
@@ -67,18 +76,41 @@ export class ValdeFormFieldComponent
   /**
    * @ignore This protected method will be used only by the component view.
    *
+   * This method is fired when user change of the input.
+   *
+   * @param {Event} event the event that it is fired when the value of the field is changed.
+   */
+  protected onChange(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    this.isValid = target?.validity?.valid;
+    if (this.isValid) {
+      this.valueTemporal = target.value;
+      this.valueChanged.emit(target.value);
+    }
+  }
+
+  /**
+   * @ignore This protected method will be used only by the component view.
+   *
    * This method is fired when input lost the focus
    *
-   * @param {Event} event the event that it is fired when the field lost the focus.
+   * @param {Event} event the event that is fired when the field lost the focus.
    */
-  onBlur(event: FocusEvent): void {
+  protected onBlur(event: FocusEvent): void {
     const target = event.target as HTMLInputElement;
     this.isValid = true;
     this.valueTemporal = target.value;
     this.valueChanged.emit(target.value);
   }
 
-  onFileChange(event: Event): void {
+  /**
+   * @ignore This protected method will be used only by the component view.
+   *
+   * This method is fired when input select a file.
+   *
+   * @param {Event} event the event that is fired when a file is selected.
+   */
+  protected onFileChange(event: Event): void {
     const target = event.target as HTMLInputElement;
     this.valueTemporal = target.value;
     console.warn(this.valueTemporal);

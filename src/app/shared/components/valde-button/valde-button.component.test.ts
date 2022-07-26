@@ -6,7 +6,7 @@ import {
   TestBed,
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-
+import { render, screen } from '@testing-library/angular';
 import {
   ButtonSize,
   ButtonStyle,
@@ -276,5 +276,23 @@ describe('ValdeButtonComponent', () => {
     const button = dEButton.nativeElement as any;
 
     expect(button.type as string).toContain('reset');
+  });
+
+  it('should call focus if the component call public focus', () => {
+    const dEInput = el.query(By.css('button'));
+    const button = dEInput.nativeElement as HTMLButtonElement;
+    const spy = jest.spyOn(button, 'focus');
+    component.focus();
+    expect(spy).toHaveBeenCalled();
+  });
+});
+
+describe('ValdeButton Testing Library', () => {
+  test('should render Button', async () => {
+    await render(ValdeButtonComponent, {
+      componentProperties: { label: 'My button' },
+    });
+
+    expect(screen.getByText('My button')).toBeTruthy();
   });
 });
