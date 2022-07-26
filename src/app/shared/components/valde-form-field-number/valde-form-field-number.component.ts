@@ -70,6 +70,15 @@ export class ValdeFormFieldNumberComponent
   }
 
   /**
+   * Set the focus on the inputControl.
+   */
+  public focus(): void {
+    if (this.inputControl) {
+      this.inputControl.nativeElement.focus();
+    }
+  }
+
+  /**
    * @ignore This protected method will be used only by the component view.
    *
    * This method is fired when input lost the focus

@@ -49,6 +49,7 @@
       (valueChanged)="onValueChanged($event)"
     ></app-valde-form-field-number>
     <app-valde-form-field-number
+      #inputNumber
       [id]="'numberField4'"
       label="Decimal field"
       placeholder="Type a decimal number here"
@@ -59,6 +60,7 @@
       (valueChanged)="onValueChanged($event)"
     ></app-valde-form-field-number>
   </form>
+  <button (click)="onClickButtonGetFocus()">Focus</button>
   <h3>File</h3>
   <form id="fileForm">
     <app-valde-form-field

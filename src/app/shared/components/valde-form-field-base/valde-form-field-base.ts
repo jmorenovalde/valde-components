@@ -1,17 +1,26 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'app-valde-form-field-base',
   template: '',
 })
 export class ValdeFormFieldBase {
+  @ViewChild('inputControl') inputControl!: ElementRef;
+
   /**
    * This property indicates if the field is disabled or not.
    */
   @Input() disabled = false;
 
   /**
-   * The identificator of the field
+   * The identification of the field
    * @required
    */
   @Input() id!: string;

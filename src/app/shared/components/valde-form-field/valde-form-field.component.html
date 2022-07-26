@@ -3,6 +3,7 @@
   <ng-container [ngSwitch]="type">
     <ng-container *ngSwitchDefault>
       <input
+        #inputControl
         autocomplete="false"
         class="form-control"
         [disabled]="disabled"
@@ -17,6 +18,7 @@
     </ng-container>
     <ng-container *ngSwitchCase="'file'">
       <input
+        #inputControl
         autocomplete="false"
         class="form-control"
         [disabled]="disabled"

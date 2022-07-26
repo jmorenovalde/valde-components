@@ -65,6 +65,14 @@ describe('ValdeFormFieldComponent', () => {
     const input = dEInput.nativeElement as any;
     expect(input.value).toBe('');
   });
+
+  it('should call focus if the component call public focus', () => {
+    const dEInput = el.query(By.css('input'));
+    const input = dEInput.nativeElement as HTMLInputElement;
+    const spy = jest.spyOn(input, 'focus');
+    component.focus();
+    expect(spy).toHaveBeenCalled();
+  });
 });
 
 describe('ValdeFormFieldComponent Testing Library', () => {
