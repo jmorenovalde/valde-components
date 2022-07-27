@@ -113,6 +113,6 @@ export class ValdeFormFieldComponent
   protected onFileChange(event: Event): void {
     const target = event.target as HTMLInputElement;
     this.valueTemporal = target.value;
-    console.warn(this.valueTemporal);
+    this.valueChanged.emit(target.value);
   }
 }

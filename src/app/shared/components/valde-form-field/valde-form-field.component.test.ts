@@ -82,6 +82,25 @@ describe('ValdeFormFieldComponent Testing Library', () => {
     expect((input as any).value).toBe('test');
   });
 
+  it('should emit the `valueChanged` if change the value of the input', async () => {
+    const valueChangedSpy = jest.fn();
+    await render(ValdeFormFieldComponent, {
+      componentProperties: {
+        id: 'inputLabelId',
+        type: 'file',
+        valueChanged: { emit: valueChangedSpy } as any,
+      },
+    });
+    const input = screen.getByTestId('inputLabelId');
+    const event = {
+      target: {
+        files: ['file.ds']
+      }
+    };
+    fireEvent.change(input, event);
+    expect(valueChangedSpy).toHaveBeenCalled();
+  });
+
   it('should show the initial value if typing the `Escape key`', async () => {
     await render(ValdeFormFieldComponent, {
       componentProperties: {
