@@ -1,0 +1,40 @@
+<h1>Login</h1>
+<form>
+  <app-valde-form-field
+    data-testid="username"
+    [id]="'username'"
+    [label]="'Username'"
+    [msgError]="usernameError"
+    [placeholder]="'Insert your username'"
+    [type]="'text'"
+    [value]="username"
+    (valueChanged)="onUsernameValueChanged($event)"
+  ></app-valde-form-field>
+  <app-valde-form-field
+    data-testid="password"
+    [id]="'password'"
+    [label]="'Password'"
+    [msgError]="passwordError"
+    [placeholder]="'Insert your password'"
+    [type]="'password'"
+    [value]="password"
+    (valueChanged)="onPasswordValueChanged($event)"
+  ></app-valde-form-field>
+</form>
+<div class="login-buttons">
+  <app-valde-button
+    data-testid="reset"
+    [label]="'Reset'"
+    [outline]="true"
+    [size]="ButtonSize.Large"
+    [buttonStyle]="ButtonStyle.Secondary"
+    (onClick)="reset()"
+  ></app-valde-button>
+  <app-valde-button
+    data-testid="login"
+    [label]="'Login'"
+    [size]="ButtonSize.Large"
+    [buttonStyle]="ButtonStyle.Primary"
+    (onClick)="login()"
+  ></app-valde-button>
+</div>

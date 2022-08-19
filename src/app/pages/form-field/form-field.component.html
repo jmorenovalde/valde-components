@@ -9,12 +9,20 @@
     ></app-valde-form-field>
     <app-valde-form-field
       [id]="'textField2'"
-      label="Text fielded"
+      label="Text filled"
       placeholder="Sample text here"
       value="this is a sample"
       (valueChanged)="onValueChanged($event)"
     ></app-valde-form-field>
+    <app-valde-form-field
+      [id]="'textField3'"
+      label="Click button to fill"
+      placeholder="Sample text here"
+      [value]="textToFill"
+      (valueChanged)="onValueChanged($event)"
+    ></app-valde-form-field>
   </form>
+  <button (click)="onClickButtonFill()">Fill</button>
   <h3>Email</h3>
   <form id="emailForm">
     <app-valde-form-field

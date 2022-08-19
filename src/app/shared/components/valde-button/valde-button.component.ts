@@ -36,8 +36,7 @@ export class ValdeButtonComponent {
    * The label to show on the button.
    * @required
    */
-  @Input()
-  label = 'Label';
+  @Input() label = 'Label';
 
   /**
    * The size of the button

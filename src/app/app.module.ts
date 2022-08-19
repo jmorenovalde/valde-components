@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ButtonsModule } from './pages/buttons/buttons.module';
 import { LayoutModule } from '@shared/layout/layout.module';
-import { FormFieldComponent } from './pages/form-field/form-field.component';
 import { FormFieldModule } from './pages/form-field/form-field.module';
+import { LoginModule } from './pages/login/login.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +16,7 @@ import { FormFieldModule } from './pages/form-field/form-field.module';
     LayoutModule,
     ButtonsModule,
     FormFieldModule,
+    LoginModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

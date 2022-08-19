@@ -9,6 +9,9 @@ import { ValdeFormFieldNumberModule } from '@shared/components/valde-form-field-
 export class FormFieldComponent {
   @ViewChild('inputNumber')
   inputNumber: ElementRef<ValdeFormFieldNumberComponent> = {} as ElementRef;
+
+  protected textToFill = '';
+
   onValueChanged(value: unknown): void {
     if (typeof value === 'number') {
       console.info({ number: value });
@@ -24,5 +27,9 @@ export class FormFieldComponent {
       const item: any = this.inputNumber;
       item.focus();
     }
+  }
+
+  onClickButtonFill(): void {
+    this.textToFill = 'Text filled by code';
   }
 }

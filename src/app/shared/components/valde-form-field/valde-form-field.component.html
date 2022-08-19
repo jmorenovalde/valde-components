@@ -4,7 +4,7 @@
     <ng-container *ngSwitchDefault>
       <input
         #inputControl
-        autocomplete="false"
+        autocomplete="off"
         attr.data-testid="{{ id }}"
         class="form-control"
         [disabled]="disabled"
@@ -17,11 +17,28 @@
         (change)="onChange($event)"
         (keyup)="onKeyup($event)"
       />
+      <small
+        *ngIf="msgError"
+        aria-invalid
+        class="
+          tooltip-error
+          badge
+          mb-3
+          px-2
+          py-1
+          fw-semibold
+          text-white
+          bg-danger bg-opacity-75
+          border border-danger
+          rounded-2
+        "
+        >{{ msgError }}</small
+      >
     </ng-container>
     <ng-container *ngSwitchCase="'file'">
       <input
         #inputControl
-        autocomplete="false"
+        autocomplete="off"
         class="form-control"
         attr.data-testid="{{ id }}"
         [disabled]="disabled"

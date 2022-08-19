@@ -13,9 +13,9 @@ export class ValdeFormFieldComponent
   implements OnChanges
 {
   /**
-   * Show error on blur (false) or in real time (false)
+   * Show error message.
    */
-  @Input() showErrorOnBlur = true;
+  @Input() msgError = '';
 
   /**
    * The type of the input.
