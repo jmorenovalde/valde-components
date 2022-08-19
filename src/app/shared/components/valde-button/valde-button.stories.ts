@@ -1,11 +1,13 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { withTests } from '@storybook/addon-jest';
+
 import {
   ButtonSize,
   ButtonStyle,
   ValdeButtonComponent,
 } from './valde-button.component';
+
 import * as results from '../../../../../.jest-test-results.json';
 
 // More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export
@@ -135,7 +137,7 @@ Outline.parameters = {
   ...Outline.parameters,
   docs: {
     source: {
-      code: '<app-valde-button label="Outline" [size]="ButtonSize.Medium" [buttonStyle]="ButtonStyle.Warning"></app-valde-button>',
+      code: '<app-valde-button label="Outline" [size]="ButtonSize.Medium" [buttonStyle]="ButtonStyle.Warning" [outline]="true"></app-valde-button>',
       language: 'typescript',
       type: 'auto',
     },

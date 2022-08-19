@@ -10,21 +10,21 @@ import {
   styleUrls: ['./valde-login.component.scss'],
 })
 export class ValdeLoginComponent {
-  protected username!: string;
-  protected usernameError!: string;
-  protected password!: string;
-  protected passwordError!: string;
+  protected username = '';
+  protected usernameError = '';
+  protected password = '';
+  protected passwordError = '';
 
   protected ButtonSize = ButtonSize;
   protected ButtonStyle = ButtonStyle;
 
   onUsernameValueChanged(username: unknown): void {
     this.username = username as string;
+    console.warn(this.username);
   }
 
   onPasswordValueChanged(password: unknown): void {
     this.password = password as string;
-    console.log(this.password);
   }
 
   reset(): void {
@@ -32,8 +32,7 @@ export class ValdeLoginComponent {
     this.password = '';
     this.usernameError = '';
     this.passwordError = '';
-
-    console.log(this.password);
+    console.log(this.username);
   }
 
   login(): void {

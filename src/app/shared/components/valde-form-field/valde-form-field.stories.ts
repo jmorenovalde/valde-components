@@ -1,8 +1,10 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { withTests } from '@storybook/addon-jest';
-import * as results from '../../../../../.jest-test-results.json';
+
 import { ValdeFormFieldComponent } from './valde-form-field.component';
+
+import * as results from '../../../../../.jest-test-results.json';
 
 // More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export
 export default {

@@ -13,7 +13,7 @@ const MSG_NUMBER_INVALID = 'The value is not valid';
 @Component({
   selector: 'app-valde-form-field-number',
   templateUrl: './valde-form-field-number.component.html',
-  styleUrls: ['./valde-form-field-number.component.scss'],
+  styleUrls: ['../valde-form-field-base/valde-form-field-base.scss'],
 })
 export class ValdeFormFieldNumberComponent
   extends ValdeFormFieldBase
@@ -56,7 +56,7 @@ export class ValdeFormFieldNumberComponent
    */
   ngOnChanges(changes: SimpleChanges): void {
     const { value } = changes;
-    if (value?.currentValue) {
+    if (value?.currentValue != null) {
       const isValid =
         !Number.isNaN(value.currentValue as string) &&
         Number.isFinite(Number(value.currentValue as string));

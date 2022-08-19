@@ -12,6 +12,7 @@
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "prebuild:storybook": "npm run test:generate-output",
     "storybook": "npm run docs:json && start-storybook -p 6006",
+    "storybook:generate-test": "npm run prebuild:storybook && npm run storybook",
     "build-storybook": "npm run docs:json && build-storybook",
     "compodoc": "compodoc -p ./tsconfig.json -n \"Valde Components\" -d ./dist/doc",
     "compodoc:dev": "compodoc -p tsconfig.json -n \"Valde Components\" -d ./dist/doc --open --serve --watch"

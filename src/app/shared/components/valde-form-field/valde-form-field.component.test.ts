@@ -94,8 +94,8 @@ describe('ValdeFormFieldComponent Testing Library', () => {
     const input = screen.getByTestId('inputLabelId');
     const event = {
       target: {
-        files: ['file.ds']
-      }
+        files: ['file.ds'],
+      },
     };
     fireEvent.change(input, event);
     expect(valueChangedSpy).toHaveBeenCalled();
@@ -112,5 +112,19 @@ describe('ValdeFormFieldComponent Testing Library', () => {
     userEvent.type(input, ' new');
     userEvent.type(input, '{esc}');
     expect((input as any).value).toBe('test');
+  });
+
+  it('should show the error message if introduce a `msgError`', async () => {
+    await render(ValdeFormFieldComponent, {
+      componentProperties: {
+        id: 'inputLabelId',
+        value: 'test',
+        msgError: 'This is a test error',
+      },
+    });
+    const error = screen.getByTestId('inputError');
+    expect(error).toBeTruthy();
+    const message = screen.getByText('This is a test error');
+    expect(message).toBeTruthy();
   });
 });

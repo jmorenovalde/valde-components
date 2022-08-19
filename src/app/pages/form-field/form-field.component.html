@@ -15,6 +15,14 @@
       (valueChanged)="onValueChanged($event)"
     ></app-valde-form-field>
     <app-valde-form-field
+      [id]="'textField4'"
+      label="With error"
+      [msgError]="'This is a error message'"
+      placeholder="Sample text here"
+      value=""
+      (valueChanged)="onValueChanged($event)"
+    ></app-valde-form-field>
+    <app-valde-form-field
       [id]="'textField3'"
       label="Click button to fill"
       placeholder="Sample text here"

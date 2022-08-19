@@ -6,7 +6,7 @@ const MSG_NUMBER_INVALID = 'The value is not valid';
 @Component({
   selector: 'app-valde-form-field',
   templateUrl: './valde-form-field.component.html',
-  styleUrls: ['./valde-form-field.component.scss'],
+  styleUrls: ['../valde-form-field-base/valde-form-field-base.scss'],
 })
 export class ValdeFormFieldComponent
   extends ValdeFormFieldBase
@@ -40,7 +40,7 @@ export class ValdeFormFieldComponent
    */
   ngOnChanges(changes: SimpleChanges): void {
     const { value } = changes;
-    if (value?.currentValue) {
+    if (value?.currentValue != null) {
       this.valueToShow = value.currentValue.toString();
       this.valueOld = value.currentValue;
     }
