@@ -31,6 +31,7 @@ describe('ValdeLoginComponent', () => {
 });
 
 describe('ValdeLoginComponent Testing Library', () => {
+  // This is an integration test because depends on ValdeFormField.
   it('should created with all components', async () => {
     await render(ValdeLoginComponent, {
       imports: [ValdeLoginModule],
@@ -46,6 +47,7 @@ describe('ValdeLoginComponent Testing Library', () => {
     expect(loginButton).toBeTruthy();
   });
 
+  // This is an integration test because depends on ValdeFormField.
   it('should show error if inputs are empty', async () => {
     await render(ValdeLoginComponent, {
       imports: [ValdeButtonModule, ValdeFormFieldModule],
@@ -63,6 +65,7 @@ describe('ValdeLoginComponent Testing Library', () => {
     }
   });
 
+  // This is an integration test because depends on ValdeFormField.
   it('should show error if `password` input is empty', async () => {
     await render(ValdeLoginComponent, {
       imports: [ValdeButtonModule, ValdeFormFieldModule],
@@ -78,12 +81,12 @@ describe('ValdeLoginComponent Testing Library', () => {
     );
     if (loginButton) {
       userEvent.click(loginButton);
-
       const errors = screen.getAllByTestId('inputError');
       expect(errors.length).toEqual(1);
     }
   });
 
+  // This is an integration test because depends on ValdeFormField.
   it('should show error if `username` input is empty', async () => {
     await render(ValdeLoginComponent, {
       imports: [ValdeButtonModule, ValdeFormFieldModule],
@@ -99,12 +102,12 @@ describe('ValdeLoginComponent Testing Library', () => {
     );
     if (loginButton) {
       userEvent.click(loginButton);
-
       const errors = screen.getAllByTestId('inputError');
       expect(errors.length).toEqual(1);
     }
   });
 
+  // This is an integration test because depends on ValdeFormField.
   it('should not show error if inputs are filled', async () => {
     await render(ValdeLoginComponent, {
       imports: [ValdeButtonModule, ValdeFormFieldModule],
@@ -123,12 +126,12 @@ describe('ValdeLoginComponent Testing Library', () => {
     );
     if (loginButton) {
       userEvent.click(loginButton);
-
       const errors = screen.queryAllByTestId('inputError');
       expect(errors.length).toEqual(0);
     }
   });
 
+  // This is an integration test because depends on ValdeFormField.
   it('should not show inputs filled if click on reset button', async () => {
     await render(ValdeLoginComponent, {
       imports: [ValdeButtonModule, ValdeFormFieldModule],
@@ -147,7 +150,6 @@ describe('ValdeLoginComponent Testing Library', () => {
     );
     if (resetButton) {
       userEvent.click(resetButton);
-
       expect((usernameInput as any).value).toBe('');
       expect((passwordInput as any).value).toBe('');
     }
