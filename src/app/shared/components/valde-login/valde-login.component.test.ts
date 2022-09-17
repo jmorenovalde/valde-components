@@ -1,11 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { getAllByTestId, render, screen } from '@testing-library/angular';
+import { render, screen } from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
-import { ValdeButtonComponent } from '../valde-button/valde-button.component';
-
-import { ValdeButtonModule } from '../valde-button/valde-button.module';
-import { ValdeFormFieldComponent } from '../valde-form-field/valde-form-field.component';
-import { ValdeFormFieldModule } from '../valde-form-field/valde-form-field.module';
 
 import { ValdeLoginComponent } from './valde-login.component';
 
@@ -29,7 +24,7 @@ describe('ValdeLoginComponent', () => {
 describe('ValdeLoginComponent Testing Library', () => {
   // This is an integration test because depends on ValdeFormField.
   it('should created with all components', async () => {
-    await render(ValdeLoginComponent, {});
+    await render(ValdeLoginComponent);
     const usernameInput = screen.getByTestId('loginUsernameInput');
     const passwordInput = screen.getByTestId('loginPasswordInput');
     const resetButton = screen.getByTestId('loginResetButton');
@@ -43,10 +38,7 @@ describe('ValdeLoginComponent Testing Library', () => {
 
   // This is an integration test because depends on ValdeFormField.
   it('should show error if inputs are empty', async () => {
-    await render(ValdeLoginComponent, {
-      imports: [ValdeButtonModule, ValdeFormFieldModule],
-      declarations: [ValdeButtonComponent, ValdeFormFieldComponent],
-    });
+    await render(ValdeLoginComponent, {});
     const logins = screen.getAllByText(/Login/i);
     const loginButton = logins.find(
       (item) => item instanceof HTMLButtonElement
@@ -61,10 +53,7 @@ describe('ValdeLoginComponent Testing Library', () => {
 
   // This is an integration test because depends on ValdeFormField.
   it('should show error if `password` input is empty', async () => {
-    await render(ValdeLoginComponent, {
-      imports: [ValdeButtonModule, ValdeFormFieldModule],
-      declarations: [ValdeButtonComponent, ValdeFormFieldComponent],
-    });
+    await render(ValdeLoginComponent, {});
 
     const usernameInput = screen.getByTestId('username');
     userEvent.type(usernameInput, '1234');
@@ -82,10 +71,7 @@ describe('ValdeLoginComponent Testing Library', () => {
 
   // This is an integration test because depends on ValdeFormField.
   it('should show error if `username` input is empty', async () => {
-    await render(ValdeLoginComponent, {
-      imports: [ValdeButtonModule, ValdeFormFieldModule],
-      declarations: [ValdeButtonComponent, ValdeFormFieldComponent],
-    });
+    await render(ValdeLoginComponent, {});
 
     const passwordInput = screen.getByTestId('password');
     userEvent.type(passwordInput, '1234');
@@ -103,10 +89,7 @@ describe('ValdeLoginComponent Testing Library', () => {
 
   // This is an integration test because depends on ValdeFormField.
   it('should not show error if inputs are filled', async () => {
-    await render(ValdeLoginComponent, {
-      imports: [ValdeButtonModule, ValdeFormFieldModule],
-      declarations: [ValdeButtonComponent, ValdeFormFieldComponent],
-    });
+    await render(ValdeLoginComponent, {});
 
     const usernameInput = screen.getByTestId('username');
     userEvent.type(usernameInput, '1234');
@@ -127,10 +110,7 @@ describe('ValdeLoginComponent Testing Library', () => {
 
   // This is an integration test because depends on ValdeFormField.
   it('should not show inputs filled if click on reset button', async () => {
-    await render(ValdeLoginComponent, {
-      imports: [ValdeButtonModule, ValdeFormFieldModule],
-      declarations: [ValdeButtonComponent, ValdeFormFieldComponent],
-    });
+    await render(ValdeLoginComponent, {});
 
     const usernameInput = screen.getByTestId('username');
     userEvent.type(usernameInput, '1234');

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   Component,
   ElementRef,
@@ -27,6 +28,8 @@ export enum ButtonSize {
 
 @Component({
   selector: 'app-valde-button',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './valde-button.component.html',
 })
 export class ValdeButtonComponent {

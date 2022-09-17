@@ -12,9 +12,7 @@ describe('ValdeFormFieldNumberComponent', () => {
   let el: DebugElement;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ValdeFormFieldNumberComponent],
-    }).compileComponents();
+    await TestBed.configureTestingModule({}).compileComponents();
 
     fixture = TestBed.createComponent(ValdeFormFieldNumberComponent);
     component = fixture.componentInstance;
@@ -151,7 +149,7 @@ describe('ValdeFormFieldNumberComponent Testing Library', () => {
       },
     });
     const input = screen.getByTestId('numberLabelId');
-    await fireEvent.focus(input);
+    fireEvent.focus(input);
     const keyboardState = userEvent.keyboard('{1},{2},{e},{1},{2},{3},{4}');
     expect((input as any).valueAsNumber).toBeNaN();
   });

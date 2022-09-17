@@ -1,9 +1,16 @@
+import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ValdeFormFieldNumberComponent } from '@shared/components/valde-form-field-number/valde-form-field-number.component';
-import { ValdeFormFieldNumberModule } from '@shared/components/valde-form-field-number/valde-form-field-number.module';
+import { ValdeFormFieldComponent } from '@shared/components/valde-form-field/valde-form-field.component';
 
 @Component({
   selector: 'app-form-field',
+  standalone: true,
+  imports: [
+    CommonModule,
+    ValdeFormFieldComponent,
+    ValdeFormFieldNumberComponent,
+  ],
   templateUrl: './form-field.component.html',
 })
 export class FormFieldComponent {

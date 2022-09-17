@@ -3,14 +3,14 @@ import { Component } from '@angular/core';
 import {
   ButtonSize,
   ButtonStyle,
+  ValdeButtonComponent,
 } from '../valde-button/valde-button.component';
-import { ValdeButtonModule } from '../valde-button/valde-button.module';
-import { ValdeFormFieldModule } from '../valde-form-field/valde-form-field.module';
+import { ValdeFormFieldComponent } from '../valde-form-field/valde-form-field.component';
 
 @Component({
   selector: 'app-valde-login',
   standalone: true,
-  imports: [CommonModule, ValdeFormFieldModule, ValdeButtonModule],
+  imports: [CommonModule, ValdeFormFieldComponent, ValdeButtonComponent],
   templateUrl: './valde-login.component.html',
   styleUrls: ['./valde-login.component.scss'],
 })

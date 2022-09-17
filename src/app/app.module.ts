@@ -3,20 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ButtonsModule } from './pages/buttons/buttons.module';
-import { LayoutModule } from '@shared/layout/layout.module';
-import { FormFieldModule } from './pages/form-field/form-field.module';
-import { LoginModule } from './pages/login/login.module';
+import { MenuComponent } from '@shared/layout/menu/menu.component';
+import { LoginComponent } from './pages/login/login.component';
+import { FormFieldComponent } from './pages/form-field/form-field.component';
+import { ButtonsComponent } from './pages/buttons/buttons.component';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LayoutModule,
-    ButtonsModule,
-    FormFieldModule,
-    LoginModule,
+    ButtonsComponent,
+    FormFieldComponent,
+    LoginComponent,
+    MenuComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

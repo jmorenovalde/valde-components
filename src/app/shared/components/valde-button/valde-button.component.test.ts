@@ -19,9 +19,7 @@ describe('ValdeButtonComponent', () => {
   let el: DebugElement;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ValdeButtonComponent],
-    }).compileComponents();
+    await TestBed.configureTestingModule({}).compileComponents();
 
     fixture = TestBed.createComponent(ValdeButtonComponent);
     component = fixture.componentInstance;

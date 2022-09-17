@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   Component,
   EventEmitter,
@@ -6,12 +7,15 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ValdeFormFieldBase } from '../valde-form-field-base/valde-form-field-base';
 
 const MSG_NUMBER_INVALID = 'The value is not valid';
 
 @Component({
   selector: 'app-valde-form-field-number',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './valde-form-field-number.component.html',
   styleUrls: ['../valde-form-field-base/valde-form-field-base.scss'],
 })

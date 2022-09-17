@@ -11,9 +11,7 @@ describe('ValdeFormFieldComponent', () => {
   let el: DebugElement;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ValdeFormFieldComponent],
-    }).compileComponents();
+    await TestBed.configureTestingModule({}).compileComponents();
 
     fixture = TestBed.createComponent(ValdeFormFieldComponent);
     component = fixture.componentInstance;
