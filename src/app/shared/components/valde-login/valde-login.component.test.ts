@@ -8,17 +8,13 @@ import { ValdeFormFieldComponent } from '../valde-form-field/valde-form-field.co
 import { ValdeFormFieldModule } from '../valde-form-field/valde-form-field.module';
 
 import { ValdeLoginComponent } from './valde-login.component';
-import { ValdeLoginModule } from './valde-login.module';
 
 describe('ValdeLoginComponent', () => {
   let component: ValdeLoginComponent;
   let fixture: ComponentFixture<ValdeLoginComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ValdeLoginComponent],
-      imports: [ValdeButtonModule, ValdeFormFieldModule],
-    }).compileComponents();
+    await TestBed.configureTestingModule({}).compileComponents();
 
     fixture = TestBed.createComponent(ValdeLoginComponent);
     component = fixture.componentInstance;
@@ -33,9 +29,7 @@ describe('ValdeLoginComponent', () => {
 describe('ValdeLoginComponent Testing Library', () => {
   // This is an integration test because depends on ValdeFormField.
   it('should created with all components', async () => {
-    await render(ValdeLoginComponent, {
-      imports: [ValdeLoginModule],
-    });
+    await render(ValdeLoginComponent, {});
     const usernameInput = screen.getByTestId('loginUsernameInput');
     const passwordInput = screen.getByTestId('loginPasswordInput');
     const resetButton = screen.getByTestId('loginResetButton');

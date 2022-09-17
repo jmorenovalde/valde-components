@@ -4,7 +4,12 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@shared/*": ["src/app/shared/*"]
+      "@shared/*": [
+        "src/app/shared/*"
+      ],
+      "my-lib": [
+        "dist/my-lib"
+      ]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

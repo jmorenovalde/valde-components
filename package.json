@@ -6,8 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "test:dev": "ng test --watch-all --coverage",
+    "test": "jest --config ./jest.app.config.js",
+    "test:dev": "jest --config ./jest.app.config.js --watch-all --coverage",
+    "test:my-lib": "jest --config ./jest.my-lib.config.js",
+    "test:my-lib:dev": "jest --config ./jest.my-lib.config.js --watch-all --coverage",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "prebuild:storybook": "npm run test:generate-output",
@@ -55,6 +57,7 @@
     "@types/jest": "latest",
     "babel-loader": "^8.2.5",
     "jest": "latest",
+    "ng-packagr": "^14.0.0",
     "nx": "14.4.0",
     "typescript": "~4.7.2"
   }
