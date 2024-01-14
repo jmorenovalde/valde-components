@@ -54,9 +54,10 @@
     "@storybook/manager-webpack5": "^6.5.9",
     "@storybook/testing-library": "^0.0.13",
     "@testing-library/angular": "^12.1.0",
-    "@types/jest": "latest",
+    "@types/jest": "^29.5.11",
     "babel-loader": "^8.2.5",
     "jest": "latest",
+    "jest-preset-angular": "^12.2.6",
     "ng-packagr": "^14.0.0",
     "nx": "14.4.0",
     "typescript": "~4.7.2"
