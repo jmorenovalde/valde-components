@@ -3,7 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { fireEvent, render, screen } from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
-import { describe, it, expect, beforeEach } from 'jest';
+import { beforeEach, describe, expect, it, jest } from '@jest/globals';
+
 import { ValdeFormFieldComponent } from './valde-form-field.component';
 
 describe('ValdeFormFieldComponent', () => {

@@ -7,6 +7,8 @@ import {
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { render, screen } from '@testing-library/angular';
+import { beforeEach, describe, expect, it, jest } from '@jest/globals';
+
 import {
   ButtonSize,
   ButtonStyle,
@@ -236,16 +238,16 @@ describe('ValdeButtonComponent', () => {
     expect(button.className as string).toContain('btn-warning');
   });
 
-  it('click on the button call the function of the send the event', fakeAsync(() => {
+  it('click on the button call the function of the send the event', async () => {
     const dEButton = el.query(By.css('button'));
     const button = dEButton.nativeElement as any;
     const mockCallBack = jest.spyOn(component.onClick, 'next');
 
-    button.click();
-    flush();
+    await button.click();
+    fixture.detectChanges();
 
     expect(mockCallBack.mock.calls.length).toEqual(1);
-  }));
+  });
 
   it('add an icon to the button', () => {
     component.icon = 'check';
@@ -286,7 +288,7 @@ describe('ValdeButtonComponent', () => {
 });
 
 describe('ValdeButton Testing Library', () => {
-  test('should render Button', async () => {
+  it('should render Button', async () => {
     await render(ValdeButtonComponent, {
       componentProperties: { label: 'My button' },
     });
