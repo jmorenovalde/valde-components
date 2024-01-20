@@ -1,7 +1,7 @@
 <h1>Login</h1>
 <form>
   <app-valde-form-field
-    data-test-id="loginUsernameInput"
+    data-testid="loginUsernameInput"
     [id]="'username'"
     [label]="'Username'"
     [msgError]="usernameError"
@@ -11,7 +11,7 @@
     (valueChanged)="onUsernameValueChanged($event)"
   ></app-valde-form-field>
   <app-valde-form-field
-    data-test-id="loginPasswordInput"
+    data-testid="loginPasswordInput"
     [id]="'password'"
     [label]="'Password'"
     [msgError]="passwordError"
@@ -23,7 +23,7 @@
 </form>
 <div class="login-buttons">
   <app-valde-button
-    data-test-id="loginResetButton"
+    data-testid="loginResetButton"
     [label]="'Reset'"
     [outline]="true"
     [size]="ButtonSize.Large"
@@ -31,7 +31,7 @@
     (onClick)="reset()"
   ></app-valde-button>
   <app-valde-button
-    data-test-id="loginLoginButton"
+    data-testid="loginLoginButton"
     [label]="'Login'"
     [size]="ButtonSize.Large"
     [buttonStyle]="ButtonStyle.Primary"

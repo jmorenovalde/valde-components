@@ -127,7 +127,7 @@ describe('ValdeFormFieldNumberComponent Testing Library', () => {
   });
 
   it('should show invalid error message is input is not integer and type a invalid value and blur from the input', async () => {
-    await render(ValdeFormFieldNumberComponent, {
+    const {fixture} = await render(ValdeFormFieldNumberComponent, {
       componentProperties: {
         id: 'numberLabelId',
         isInteger: true,
@@ -136,8 +136,8 @@ describe('ValdeFormFieldNumberComponent Testing Library', () => {
     const input = screen.getByTestId('numberLabelId');
     userEvent.type(input, '12e1234');
     userEvent.tab();
-    const error = screen.getByText('The number is not valid');
-    expect(error).toBeTruthy();
+    fixture.detectChanges();
+    expect(await screen.findByText('The number is not valid')).toBeTruthy();
   });
 
   it('should show invalid error message is input is not integer and type a invalid value', async () => {

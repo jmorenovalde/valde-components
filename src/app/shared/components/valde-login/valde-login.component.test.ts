@@ -38,14 +38,14 @@ describe('ValdeLoginComponent Testing Library', () => {
 
   // This is an integration test because depends on ValdeFormField.
   it('should show error if inputs are empty', async () => {
-    await render(ValdeLoginComponent, {});
+    const {fixture} = await render(ValdeLoginComponent, {});
     const logins = screen.getAllByText(/Login/i);
     const loginButton = logins.find(
       (item) => item instanceof HTMLButtonElement
     );
     if (loginButton) {
       userEvent.click(loginButton);
-
+      fixture.detectChanges();
       const error = screen.getAllByTestId('inputError');
       expect(error.length).toEqual(2);
     }
@@ -53,10 +53,11 @@ describe('ValdeLoginComponent Testing Library', () => {
 
   // This is an integration test because depends on ValdeFormField.
   it('should show error if `password` input is empty', async () => {
-    await render(ValdeLoginComponent, {});
+    const {fixture} = await render(ValdeLoginComponent, {});
 
     const usernameInput = screen.getByTestId('username');
     userEvent.type(usernameInput, '1234');
+    fixture.detectChanges();
 
     const logins = screen.getAllByText('Login');
     const loginButton = logins.find(
@@ -64,6 +65,7 @@ describe('ValdeLoginComponent Testing Library', () => {
     );
     if (loginButton) {
       userEvent.click(loginButton);
+      fixture.detectChanges();
       const errors = screen.getAllByTestId('inputError');
       expect(errors.length).toEqual(1);
     }
@@ -71,17 +73,18 @@ describe('ValdeLoginComponent Testing Library', () => {
 
   // This is an integration test because depends on ValdeFormField.
   it('should show error if `username` input is empty', async () => {
-    await render(ValdeLoginComponent, {});
+    const {fixture} = await render(ValdeLoginComponent, {});
 
     const passwordInput = screen.getByTestId('password');
     userEvent.type(passwordInput, '1234');
-
+    fixture.detectChanges();
     const logins = screen.getAllByText('Login');
     const loginButton = logins.find(
       (item) => item instanceof HTMLButtonElement
     );
     if (loginButton) {
       userEvent.click(loginButton);
+      fixture.detectChanges();
       const errors = screen.getAllByTestId('inputError');
       expect(errors.length).toEqual(1);
     }
@@ -89,13 +92,14 @@ describe('ValdeLoginComponent Testing Library', () => {
 
   // This is an integration test because depends on ValdeFormField.
   it('should not show error if inputs are filled', async () => {
-    await render(ValdeLoginComponent, {});
+    const {fixture} = await render(ValdeLoginComponent, {});
 
     const usernameInput = screen.getByTestId('username');
     userEvent.type(usernameInput, '1234');
 
     const passwordInput = screen.getByTestId('password');
     userEvent.type(passwordInput, '1234');
+    fixture.detectChanges();
 
     const logins = screen.getAllByText('Login');
     const loginButton = logins.find(
@@ -103,6 +107,7 @@ describe('ValdeLoginComponent Testing Library', () => {
     );
     if (loginButton) {
       userEvent.click(loginButton);
+      fixture.detectChanges();
       const errors = screen.queryAllByTestId('inputError');
       expect(errors.length).toEqual(0);
     }
@@ -110,13 +115,14 @@ describe('ValdeLoginComponent Testing Library', () => {
 
   // This is an integration test because depends on ValdeFormField.
   it('should not show inputs filled if click on reset button', async () => {
-    await render(ValdeLoginComponent, {});
+    const {fixture} = await render(ValdeLoginComponent, {});
 
     const usernameInput = screen.getByTestId('username');
     userEvent.type(usernameInput, '1234');
 
     const passwordInput = screen.getByTestId('password');
     userEvent.type(passwordInput, '1234');
+    fixture.detectChanges();
 
     const resets = screen.getAllByText('Reset');
     const resetButton = resets.find(
@@ -124,6 +130,7 @@ describe('ValdeLoginComponent Testing Library', () => {
     );
     if (resetButton) {
       userEvent.click(resetButton);
+      fixture.detectChanges();
       expect((usernameInput as any).value).toBe('');
       expect((passwordInput as any).value).toBe('');
     }

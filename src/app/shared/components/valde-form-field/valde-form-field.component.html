@@ -5,7 +5,7 @@
       <input
         #inputControl
         autocomplete="off"
-        attr.data-test-id="{{ id }}"
+        attr.data-testid="{{ id }}"
         class="form-control"
         [disabled]="disabled"
         [id]="id"
@@ -20,7 +20,7 @@
       <small
         *ngIf="msgError"
         aria-invalid
-        data-test-id="inputError"
+        data-testid="inputError"
         class="
           tooltip-error
           badge
@@ -41,7 +41,7 @@
         #inputControl
         autocomplete="off"
         class="form-control"
-        attr.data-test-id="{{ id }}"
+        attr.data-testid="{{ id }}"
         [disabled]="disabled"
         [id]="id"
         [placeholder]="placeholder"

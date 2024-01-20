@@ -4,7 +4,7 @@
     #inputControl
     autocomplete="false"
     class="form-control"
-    attr.data-test-id="{{ id }}"
+    attr.data-testid="{{ id }}"
     [disabled]="disabled"
     [id]="id"
     [max]="max"
@@ -21,7 +21,7 @@
   />
   <small
     *ngIf="!isValid"
-    data-test-id="inputError"
+    data-testid="inputError"
     aria-invalid
     class="
       tooltip-error
