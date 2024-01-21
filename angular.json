@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "valde-components:build:production"
+              "buildTarget": "valde-components:build:production"
             },
             "development": {
-              "browserTarget": "valde-components:build:development"
+              "buildTarget": "valde-components:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "valde-components:build"
+            "buildTarget": "valde-components:build"
           }
         },
         "test": {
