@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@valde/ui-components": ["libs/ui-components/src/index.ts"],
+      "@valde/ui-components/single-button": [
+        "libs/ui-components/single-button/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
