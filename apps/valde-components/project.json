@@ -22,7 +22,11 @@
             "input": "apps/valde-components/public"
           }
         ],
-        "styles": ["apps/valde-components/src/styles.scss"],
+        "styles": [
+          "apps/valde-components/src/styles.scss",
+          "node_modules/bootstrap/dist/css/bootstrap.min.css",
+          "node_modules/bootstrap-icons/font/bootstrap-icons.scss"
+        ],
         "scripts": []
       },
       "configurations": {
