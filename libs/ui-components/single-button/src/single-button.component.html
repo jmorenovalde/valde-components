@@ -1,16 +1,16 @@
 <button
   #singleButton
-  class="btn btn-{{ outline ? 'outline-' + buttonStyle : buttonStyle }}"
+  class="btn btn-{{ outline() ? 'outline-' + buttonStyle() : buttonStyle() }}"
   [ngClass]="{
-    'btn-sm': size === 'small',
-    'btn-lg': size === 'large'
+    'btn-sm': size() === 'small',
+    'btn-lg': size() === 'large'
   }"
-  [disabled]="disabled"
-  [type]="type"
+  [disabled]="disabled()"
+  [type]="type()"
   (click)="clicked($event)"
 >
-  @if (icon) {
-    <span aria-hidden="true" class="bi bi-{{ icon }}"></span>
+  @if (icon()) {
+    <span aria-hidden="true" class="bi bi-{{ icon() }}"></span>
   }
-  {{ label }}
+  {{ label() }}
 </button>

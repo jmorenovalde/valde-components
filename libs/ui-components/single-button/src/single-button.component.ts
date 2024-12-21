@@ -1,10 +1,9 @@
-import { CommonModule, NgClass } from '@angular/common';
+import { NgClass } from '@angular/common';
 import {
   Component,
   ElementRef,
-  EventEmitter,
-  Input,
-  Output,
+  input,
+  output,
   ViewChild,
 } from '@angular/core';
 
@@ -39,49 +38,49 @@ export class SingleButtonComponent {
    * The label to show on the button.
    * @required
    */
-  @Input() label = 'Label';
+  readonly label = input<string>('Label');
 
   /**
    * The size of the button
    */
-  @Input() size = ButtonSize.Medium;
+  readonly size = input<ButtonSize>(ButtonSize.Medium);
 
   /**
    * The style to show the button.
    */
-  @Input() buttonStyle = ButtonStyle.Primary;
+  readonly buttonStyle = input<ButtonStyle>(ButtonStyle.Primary);
 
   /**
    * This property is used to disable the button.
    */
-  @Input() disabled = false;
+  readonly disabled = input<boolean>(false);
 
   /**
    * The style outlined
    */
-  @Input() outline = false;
+  readonly outline = input<boolean>(false);
 
   /**
    * Icon to show before label. The icon is the string of the style of the icon from [bootstrap-icons](https://icons.getbootstrap.com/).
    *
    * @example tho show the alarm icon, on the bootstrap-icon page you can see the next code `<i class="bi bi-alarm"></i>`, to show the alarm icon set icon to `alarm`.
    */
-  @Input() icon = '';
+  readonly icon = input<string>('');
 
   /**
    * The type of button. Default value is button, but can use as submit or reset.
    */
-  @Input() type: 'button' | 'submit' | 'reset' = 'button';
+  readonly type = input<'button' | 'submit' | 'reset'>('button');
 
   /**
    * Optional click handler
    */
-  @Output() onClick = new EventEmitter<Event>();
+  handleClick = output<Event>();
 
   /**
    * Set the focus on the button.
    */
-  public focus(): void {
+  focus(): void {
     if (this.button) {
       this.button.nativeElement.focus();
     }
@@ -89,10 +88,10 @@ export class SingleButtonComponent {
 
   /**
    * @ignore
-   * This function will fire the event onClick on the click over the button.
+   * This function will fire the event handleClick on the click over the button.
    * @param event The event object that is fired.
    */
   protected clicked(event: Event): void {
-    this.onClick.next(event);
+    this.handleClick.emit(event);
   }
 }
