@@ -2,8 +2,9 @@
 
 # compiled output
 dist
-tmp
+docs
 out-tsc
+tmp
 
 # dependencies
 node_modules
