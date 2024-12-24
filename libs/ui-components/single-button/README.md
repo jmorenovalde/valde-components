@@ -14,8 +14,8 @@ Configurable button to use as a button.
 
 ## output
 
-- handleClick: if the button is clicked and return the same event as the button.
+- **handleClick**: if the button is clicked and return the same event as the button.
 
 ## methods
 
-- focus: this methods will be called outside of the button to set the focus on the button.
+- **focus**: this methods will be called outside of the button to set the focus on the button.
